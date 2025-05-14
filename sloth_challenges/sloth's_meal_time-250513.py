@@ -13,9 +13,9 @@ def timeToEat(currentTimeStr: str) -> tuple[int, int]:
         currentTime = currentHours + (currentMinute / 60) # convert to decimal hours
 
         # meridian indicator (period)
-        if re.search(r"p.m.", currentTimeStr.replace(" ",""), re.IGNORECASE) and currentTime != 12: # post meridiem
+        if re.search(r"p.m.", currentTimeStr, re.IGNORECASE) and currentTime != 12: # post meridiem
             currentTime += 12
-        elif re.search(r"a.m.", currentTimeStr.replace(" ",""), re.IGNORECASE) and currentTime == 12: # ante meridiem
+        elif re.search(r"a.m.", currentTimeStr, re.IGNORECASE) and currentTime == 12: # ante meridiem
             currentTime = 0
 
         res = float('inf') # set to infinity to find the minimum difference
